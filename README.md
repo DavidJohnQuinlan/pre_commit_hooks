@@ -20,6 +20,7 @@ the pre-commit package and some pre-commit hooks.
 ### Installation and configuration
 To install the `pre-commit` Python package use the following command in your Python 
 environment:
+
 `pip install pre-commit` 
 
 Now that pre-commit has been installed, add it to your repositories `requirements.txt` 
@@ -107,11 +108,13 @@ file above. For further details on the exact discrepancies see
 Now, that all configurations have been defined you can install all pre-commit hooks. 
 The following command also ensures that the pre-commit hook will run everytime you 
 commit changes to your repository.
+
 `pre-commit install` 
 
 It's usually a good idea to run the hooks against all of the files when adding new 
 hooks (usually pre-commit will only run on the changed files during git hooks). To do 
 so use the following command: 
+
 `pre-commit run --all-files`
 
 Once all issues have been resolved, any further commits will be automatically checked 
