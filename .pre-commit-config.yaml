@@ -1,0 +1,33 @@
+# define the repositories from which to install pre-commit-hooks, isort, black and flake8
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v2.4.0
+  hooks:
+      - id: check-yaml # Checks yaml files for parseable syntax.
+      - id: check-added-large-files # Check for files too large for git.
+      - id: check-case-conflict # Check for files that would conflict in case-insensitive filesystems.
+      - id: check-merge-conflict # Check for files that contain merge conflict strings.
+      - id: debug-statements # Check for debugger imports and py37+ `breakpoint()` calls in python source.
+      - id: requirements-txt-fixer # Sorts entries in requirements.txt.
+      - id: forbid-new-submodules # Check for git submodules.
+
+- repo: https://github.com/asottile/seed-isort-config
+  rev: v2.2.0
+  hooks:
+    - id: seed-isort-config
+
+- repo: https://github.com/pre-commit/mirrors-isort
+  rev: v5.7.0
+  hooks:
+      - id: isort
+- repo: https://github.com/ambv/black
+  rev: 20.8b1
+  hooks:
+      - id: black
+        language_version: python3.7
+        args: [-l 88]
+
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 3.8.4
+  hooks:
+      - id: flake8
