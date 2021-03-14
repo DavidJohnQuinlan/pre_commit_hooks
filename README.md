@@ -1,8 +1,8 @@
-## Installing and using git pre-commit
+## Git pre-commit hooks
 
 ### Introduction
-Git pre-commits are a very helpful tool which enable a user to identify simple issues 
-before submission of code for a code review. Hooks can be configured to run prior to 
+Git pre-commits hooks are a very helpful tool which enables a user to identify simple 
+issues before submission of code for a code review. Hooks can be configured to run prior to 
 every commit to automatically point out issues in code such as missing semicolons, 
 trailing whitespace, and debug statements. By pointing these issues out before code 
 review, this allows a code reviewer to focus on the architecture of a change while not 
@@ -18,30 +18,30 @@ The following instructions will detail the installation and initial configuratio
 the pre-commit package and some pre-commit hooks.  
 
 ### Installation and configuration
-To install the `pre-commit` Python package use the following command in your Python 
+To install the `pre-commit` Python package use the following command in a Python 
 environment:
 
 `pip install pre-commit` 
 
-Now that pre-commit has been installed, add it to your repositories `requirements.txt` 
+Now that pre-commit has been installed, add it to the repositories `requirements.txt` 
 file.
 
-Next, we will need to create the `.pre-commit-config.yaml` file. This file defines the 
-hooks which we wish to include and the locations of there respective repositories. It 
+Next, it is necessary to create the `.pre-commit-config.yaml` file. This file defines the 
+hooks one wishes to include and the locations of there respective repositories. It 
 is also possible to define some initial basic pre-commit hooks in this file too. For 
 example some hooks have been added to check for files too large for git or files that 
 contain merge conflict strings. For more details on potentially useful hooks see 
 `https://pre-commit.com/hooks.html`.
 
 It is also worth noting that pre-commit only runs against staged files. Pre-commit 
-will continue to complain when you commit until you make the required changes and 
-subsequently add their files.
+will continue to complain when commiting until the required changes have been made 
+and changed files subsequently added.
 
-We will also use the `isort`, `black` and `flake8` plugin hooks to ensure that our 
+The `isort`, `black` and `flake8` plugin hooks can also be used to ensure that the 
 Python code satisfies a basic set of style requirements.
  
 #### isort
-isort is a Python library to sort imports alphabetically. It also automatically 
+isort is a Python library which sorts imports alphabetically. It also automatically 
 separates libraries into sections sorted by type.
 
 #### black
@@ -50,18 +50,18 @@ The Python community rallied behind PEP8 as the guide for what Python code shoul
 aspire to. PEP8 adds a level of consistency which makes moving from one project to 
 another feel natural. However, PEP8 is a style guide not a tool. The consequence of 
 focusing on a style guide instead of a tool is that it’s possible to have 
-inconsistent code. Thus placing the burden on the developer to fix any style issues 
+inconsistent code. Thus, placing the burden on the developer to fix any style issues 
 in the code.
 
 Black is the uncompromising Python code formatter which solves the above issue by 
-automatically formatting your code. By using it, you agree to cede control over 
+automatically formatting your code. By using Black, you agree to cede control over 
 very minutiae of hand-formatting. In return, Black gives you speed, determinism, 
 and freedom from pycodestyle nagging about formatting. You will save time and mental 
 energy for more important matters.
 
-Black makes code review faster by producing the smallest diffs possible. Blackened 
-code looks the same regardless of the project you’re reading. Formatting becomes 
-transparent after a while and you can focus on the content instead.
+Black makes code reviews faster by producing the smallest diffs possible. Blackened 
+code looks the same regardless of the project you are reading. Formatting becomes 
+transparent after a while and it is possible to focus on the content instead.
 
 #### flake8
 Flake8 is a Python library for checking your code base against coding style (PEP8), 
@@ -73,8 +73,8 @@ It is possible to define the configurations of `isort` and `flake8` using the
 `setup.cfg` file, however, it is not possible to add `black` configuration to this 
 file. Black generally defines its configuration in a file called `pyproject.toml`. 
 However, it is possible to define some configuration arguments which are applied on 
-installation of black. In this way there is no need to create another configuration 
-file which in my opinion adds further clutter to your repository.
+installation of Black. In this way there is no need to create another configuration 
+file which in my opinion adds further clutter to a repository.
 
 Here is an example of the `setup.cfg` file:
 
@@ -105,13 +105,13 @@ these discrepancies are resolved using the configuration stated in the `setup.cf
 file above. For further details on the exact discrepancies see 
 `https://black.readthedocs.io/en/stable/compatible_configs.html`.
 
-Now, that all configurations have been defined you can install all pre-commit hooks. 
-The following command also ensures that the pre-commit hook will run everytime you 
-commit changes to your repository.
+Now, that all configurations have been defined it is possible to install all pre-commit hooks. 
+The following command also ensures that the pre-commit hook will run everytime a 
+commit it made to this repository.
 
 `pre-commit install` 
 
-It's usually a good idea to run the hooks against all of the files when adding new 
+It is usually a good idea to run the hooks against all of the files when adding new 
 hooks (usually pre-commit will only run on the changed files during git hooks). To do 
 so use the following command: 
 
@@ -119,3 +119,6 @@ so use the following command:
 
 Once all issues have been resolved, any further commits will be automatically checked 
 using the pre-commit hooks.
+
+### Conclusion
+This repository contains the details required to install and implement pre-commit hooks within a new or existing project.
